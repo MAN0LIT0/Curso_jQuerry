@@ -5,18 +5,108 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aula JQuery</title>
+    <style>
+        @keyframes example {
+            0%   {background-color:rgb(170, 169, 169); left:0px; top:0px;}
+            25%  {background-color:rgba(96, 126, 25, 0.555); left:200px; top:0px;}
+            50%  {background-color:rgb(32, 106, 155); left:200px; top:200px;}
+            75%  {background-color:rgb(156, 223, 156); left:0px; top:200px;}
+            100% {background-color:rgb(233, 22, 233); left:0px; top:0px;}
+        }
+
+/* The element to apply the animation to */
+        #botao {
+        width: 100px;
+        height: 100px;
+        position: relative;
+        background-color: red;
+        }
+
+        .botao-anim{
+            animation-name: example;
+            animation-duration: 4s;
+        }
+        .botao-anim-reverse{
+            animation-direction: alternate-reverse;
+        }
+
+        #campotexto{
+            padding: 40px;
+        }
+
+    </style>
 </head>
 <body>
-    <p id="teste"></p>
+    <p>seletor por item html</p>
+    <p id="teste">seletor por ID</p>
+    <p class="selecionar"> seletor por classe</p>
+    <dir class="selecionar"> ola</dir>
     <script src="js/jquery-3.6.0.js"></script>
+
+        <hr>
+    <input type="text" placeholder="digite algo" id="campotexto">
+    <button id="botao">Clique aki</button>
 
     <script>
         // JAVASCRIPT PURO
-        document.getElementById("teste").innerHTML = "teste";
+       // document.getElementById("teste").innerHTML = "teste";
 
         //jQuerry
-        $("#teste").html("teste");
-        
+       // $("#teste").html("teste");
+        //$('p').addClass('nome-da-classe');
+
+        // JQ documento pronto
+        $(document).ready(function() {
+
+            $('p').html('Inserido com jquerry');
+
+            $('#teste').html('Inserido com jquerry no ID');
+
+            $('p.selecionar').html('Inserido com jquerry com a classe');
+
+            $("#botao").click(function () {
+                $(this).addClass("botao-anim");
+                
+            });
+            //$("#botao").mouseenter(function () {
+              //  $(this).removeClass("botao-anim");
+            //});
+
+            $('#teste').click(function() {
+                $(this).html('Mudei quando fui clicado');
+            });
+
+            $("#botao").dblclick(function () {
+                $(this).removeClass("botao-anim");
+                });
+
+            $("#botao").hover(function(){
+                $(this).text("Mouse Entrou");
+            },function(){
+                $(this).text("Mouse Saiu");
+            });
+
+            $("#campotexto").focus(function () {
+                $(this).css("background-color", "aqua");
+            });
+
+            $("#campotexto").blur(function () {
+                $(this).css("background-color", "orange");
+            });
+
+            $('p').on({
+                mouseenter: function() {
+                    $(this).css('background-color', 'yellow');
+                },
+                click: function () {
+                    $(this).css('background-color', 'purple');
+                },
+                mouseleave: function() {
+                    $(this).css('background-color', 'green');
+                }
+            });
+
+        });
     </script>
 </body>
 </html>
