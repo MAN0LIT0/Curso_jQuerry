@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula JQuery 2</title>
+    <style>
+       body{
+           display: flex;
+           flex-direction:column;
+           align-items: center;
+           justify-content: center;
+       }
+       .bloco{
+           width: 200px;
+           height: 200px;
+           margin: 0 auto;
+           margin-right: 5px;
+           
+       } 
+       .blue{
+           background-color: blue;
+       }
+
+       .red{
+           background-color: red;
+       }
+
+       .green{
+           background-color: green;
+       }
+
+       .gray {
+           background-color: rgb(32, 31, 31);
+       }
+       
+       .btn {
+            padding: 25px;
+            margin-right: 10px;
+       }
+
+       .container {
+           display: flex;
+           justify-content: center;
+           margin-top: 50px;
+            width: 100%;
+       }
+       .td {
+        display: flex;
+        flex-wrap: wrap;
+       }
+
+       .separacao {
+        width: 100%;
+        height: 5px;
+        background-color: black;
+       }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Show and Hide</h1>
+    </div>
+    <div class="td">
+        <div class="bloco red"></div>
+        <div class="bloco blue"></div>
+        <div class="bloco green"></div>
+        <div class="bloco gray"></div>
+    </div>
+
+    <div class="container">
+        <button class="btn" id="show">Mostrar</button>
+        <button class="btn" id="hide">Ocultar</button>
+    </div>  
+
+    <hr class="separacao">
+
+    <div class="container">
+        <h1>Toggle btw(hide/show)</h1>
+    </div>
+    <div class="td">
+        <div class="bloco red"></div>
+        <div class="bloco blue"></div>
+        <div class="bloco green"></div>
+        <div class="bloco gray"></div>
+    </div>
+
+    <div class="container">
+        <button class="btn" id="alternar">Clique aqui</button>
+    </div>
+
+    <hr class="separacao">
+
+    <div class="container">
+        <h1>FadeIn and FadeOut</h1>
+    </div>
+    <div class="td">
+        <div class="bloco red"></div>
+        <div class="bloco blue"></div>
+        <div class="bloco green"><img src="fadeout_meme.png" alt="" style="width: 200px;
+            height: 200px;"></div>
+        <div class="bloco gray"></div>
+    </div>
+
+    <div class="container">
+        <button class="btn" id="fadein">FadeIn</button>
+        <button class="btn" id="fadeout">FadeOut</button>
+    </div>
+
+    <hr class="separacao">
+
+    <div class="container">
+        <h1>FadeIn and FadeOut</h1>
+    </div>
+    <div class="td">
+        <div class="bloco red"></div>
+        <div class="bloco blue"></div>
+        <div class="bloco green"><img src="fadeout_meme.png" alt="" style="width: 200px;
+            height: 200px;"></div>
+        <div class="bloco gray"></div>
+    </div>
+
+    <div class="container">
+        <button class="btn" id="fadeToggle">FadeToggle</button>
+    </div>
+    
+    <script src="js/jquery-3.6.0.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('#hide').click(function(){
+                $('.blue').hide('slow', function() {
+                    //alert('condeu papai kkkk');
+                });
+            });
+
+            $('#show').click(function(){
+                $('.blue').show('slow', function() {
+                   // alert('achou papai kkkk');
+                });
+            });
+
+            ///////////////toggle/////////////////
+            $('#alternar').click(function(){
+                $('.red').toggle();
+            });
+
+            ///////////////fadein && fadeout/////////////////
+            $('#fadeout').click(function(){
+                $('.green').fadeOut(5000);
+            });
+
+            $('#fadein').click(function(){
+                $('.green').fadeIn(5000);
+            });
+        });
+
+    </script>
+</body>
+</html>
